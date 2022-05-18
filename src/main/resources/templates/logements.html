@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>Patients</title>
+    <link rel="stylesheet" href="webjars/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<div class="container mt-5" >
+    <div class="card">
+        <div class="card-header"> Liste des employe </div>
+        <div class = "card-body">
+
+            <table class="table">
+                <tr>
+                    <th> ID </th>
+                    <th> titre </th>
+                    <th> description </th>
+                    <th> user </th>
+                </tr>
+                <tr th:each="l:${logements}">
+                    <td th:text="${l.id}"> </td>
+                    <td th:text="${l.titre}"> </td>
+                    <td th:text="${l.description}"> </td>
+
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
