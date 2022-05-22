@@ -11,7 +11,7 @@ import java.util.List;
 public interface LogementRepository extends JpaRepository<Logement, Long> {
 
 
-    Page<Logement> findLogementsByVilleNameContains(String villeName , Pageable pageable);
+    Page<Logement> findLogementsByVilleNameAndTypeLogName(String villeName ,String type ,  Pageable pageable);
 
 
 }

@@ -28,12 +28,13 @@ public class LogementController {
     TypeLogRepositrory typeLogRepositrory;
 
     @GetMapping(value = "/logement/rechercher")
-    public String rechercher(Model model, @RequestParam(name = "page", defaultValue ="0" ) int page ,@RequestParam(name = "ville" , defaultValue = "") String ville) {
-        Page<Logement> list = logementRepository.findLogementsByVilleNameContains(ville , PageRequest.of(page , 6));
+    public String rechercher(Model model, @RequestParam(name = "page", defaultValue ="0" ) int page ,@RequestParam(name = "ville" , defaultValue = "") String ville   , @RequestParam(defaultValue = "") String type) {
+        Page<Logement> list = logementRepository.findLogementsByVilleNameAndTypeLogName(ville ,type, PageRequest.of(page , 6));
         model.addAttribute("listeDesLogements", list.getContent());
         model.addAttribute("pages" ,new int[list.getTotalPages()] );
         model.addAttribute("pagecourant" , page);
         model.addAttribute("ville" , ville);
+        model.addAttribute("type" , type);
         return "logements";
     }
 
