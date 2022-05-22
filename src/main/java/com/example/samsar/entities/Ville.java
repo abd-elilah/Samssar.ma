@@ -15,9 +15,9 @@ import java.util.List;
 @ToString
 public class Ville {
 
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id ;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     @OneToMany(mappedBy = "ville")
     List<Logement> logements;

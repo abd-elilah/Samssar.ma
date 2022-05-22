@@ -1,6 +1,5 @@
 package com.example.samsar.entities;
 
-import com.example.samsar.enums.typeLogement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,16 +14,17 @@ import javax.persistence.*;
 @ToString
 public class Demande {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id ;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @ManyToOne
     private Ville ville;
-    private typeLogement type;
-    private int superficie ;
+    @ManyToOne
+    private TypeLog type;
+    private int superficie;
     private double budget;
     private String description;
     @ManyToOne
-    Client client ;
+    Client client;
 
 }

@@ -1,20 +1,20 @@
 package com.example.samsar.web;
 
 import com.example.samsar.entities.Logement;
+import com.example.samsar.entities.TypeLog;
 import com.example.samsar.entities.Ville;
-import com.example.samsar.enums.typeLogement;
 import com.example.samsar.repositories.LogementRepository;
+import com.example.samsar.repositories.TypeLogRepositrory;
 import com.example.samsar.repositories.VilleRepository;
-import org.hibernate.mapping.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -24,22 +24,27 @@ public class LogementController {
     LogementRepository logementRepository;
     @Autowired
     VilleRepository villeRepository;
-    @GetMapping(value = "/logement/rechercher")
-    public String  rechercher(Model model , @RequestParam String ville){
+    @Autowired
+    TypeLogRepositrory typeLogRepositrory;
 
-        List<Logement> logementList = logementRepository.findLogementByVille_Name(ville);
-        model.addAttribute("logements" , logementList);
+    @GetMapping(value = "/logement/rechercher")
+    public String rechercher(Model model, @RequestParam(name = "page", defaultValue ="0" ) int page) {
+        Page<Logement> list = logementRepository.findAll(PageRequest.of(page , 6));
+        model.addAttribute("listeDesLogements", list.getContent());
+        model.addAttribute("pages" ,new int[list.getTotalPages()] );
+        model.addAttribute("pagecourant" , page);
         return "logements";
     }
+
     @GetMapping(path = "/logement/ajouter")
-    public String ajouterLogement(Model model ){
+    public String ajouterLogement(Model model) {
 
-        List<Ville> villes =villeRepository.findAll();
-        model.addAttribute("villes" , villes);
-      return "ajouterLogement";
+        List<Ville> villes = villeRepository.findAll();
+        List<TypeLog> types = typeLogRepositrory.findAll();
+        model.addAttribute("villes", villes);
+        model.addAttribute("types", types);
+        return "add_announce";
     }
-
-
 
 
 }

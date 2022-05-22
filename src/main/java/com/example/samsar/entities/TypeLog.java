@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.apache.catalina.LifecycleState;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -13,19 +15,14 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Client {
-
+public class TypeLog implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nom;
-    private String prenom;
-    private String email;
-    private String phone;
-    private String password;
-    private String img;
-    @OneToMany(mappedBy = "client")
+    private String name;
+    @OneToMany(mappedBy = "typeLog")
     List<Logement> logementList;
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "type")
     List<Demande> demandes;
+
 }

@@ -13,19 +13,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Client {
-
+public class StatusLog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nom;
-    private String prenom;
-    private String email;
-    private String phone;
-    private String password;
-    private String img;
-    @OneToMany(mappedBy = "client")
+    private String status;
+    @OneToMany(mappedBy = "status")
     List<Logement> logementList;
-    @OneToMany(mappedBy = "client")
-    List<Demande> demandes;
+
+
 }

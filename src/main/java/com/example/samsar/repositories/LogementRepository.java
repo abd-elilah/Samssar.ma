@@ -8,5 +8,7 @@ import java.util.List;
 public interface LogementRepository extends JpaRepository<Logement, Long> {
 
 
-    List<Logement> findLogementByVille_Name( String villeName);
+    List<Logement> findByVille_Name(String villeName);
+
+
 }
