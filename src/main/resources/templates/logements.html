@@ -20,23 +20,23 @@
             <a class="nav-link" href="#" style="color: #ff8000">Link 3</a>
         </li>
         <li class="nav-item ">
-            <a class="nav-link" href="#" style="color: #ff8000" >login</a>
+            <button  type="button" class="nav-link btn btn-success mr-2" href="#" style="color: #ff8000 ; color: white " >Log  in</button>
         </li>
         <li class="nav-item ">
-            <a class="nav-link" href="#" style="color: #ff8000">sign in</a>
+            <button  type="button" class="nav-link btn btn-success" href="#" style="color: #ff8000 ; color: white" >Sign in</button>
         </li>
     </ul>
 </nav>
 <div class="card  mb-2 bg-dark ">
     <div style="padding-right: 20% ; padding-left: 20%" >
         <h1 class=" color-bar pl-3" style="color: white">Rechercher</h1>
-        <div class="card-body  ">
-            <div class="input-group " >
+            <form  th:action="@{/logement/rechercher}" class="card-body  ">
+               <div class="input-group " >
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon"  name="ville" th:value="${ville}" />
+                <button type="submit" class="btn " style="background-color: #ff8000 ; color: white">search</button>
 
-                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon"  />
-                <button type="button" class="btn " style="background-color: #ff8000 ; color: white">search</button>
-            </div>
-        </div>
+               </div>
+            </form>
     </div>
 </div>
 <div class="container  ">
@@ -54,7 +54,7 @@
 </div>
     <ul class="pagination  justify-content-center mt-3">
         <li class="page-item" th:each="page,status:${pages}">
-            <a th:class="${status.index==pagecourant?'btn btn-info ml-1' : 'btn btn-outline-info ml-1'}" th:text="${status.index}" th:href="@{/logement/rechercher(page=${status.index})}"  ></a>
+            <a th:class="${status.index==pagecourant?'btn btn-info ml-1' : 'btn btn-outline-info ml-1'}" th:text="${status.index}" th:href="@{/logement/rechercher(page=${status.index}, ville=${ville})}"  ></a>
         </li>
     </ul>
 </div>
