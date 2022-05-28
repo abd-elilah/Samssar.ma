@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" >
+    <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.1/css/all.css} "/>
+
+    <title>Smasar.ma</title>
+</head>
+<body>
+    <nav class="menu-container">
+        <!-- burger menu -->
+        <input type="checkbox" aria-label="Toggle menu" />
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <!-- logo -->
+        <a href="index" class="menu-logo"> SmSar </a>
+
+        <!-- menu items -->
+        <div class="menu">
+            <ul></ul>
+            <ul>
+                <li class="fa fa-user-plus" aria-hidden="true">
+                    <a href="signup" class="signup"> Sign-up </a>
+                </li>
+                <li  class="fa fa-sign-in" aria-hidden="true">
+                    <a href="login" class="login"> Login </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="login-box">
+        <h2>Login</h2>
+        <form>
+            <div class="user-box">
+                <input type="text" name="" required="">
+                <label class="fa fa-user" aria-hidden="true">Username</label>
+            </div>
+            <div class="user-box">
+                <input type="password" name="" required="">
+                <label class="fa fa-key fa-fw" aria-hidden="true">Password</label>
+            </div>
+            <a href="homepage/home.html">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Submit
+            </a>
+            <a href="signup.html" class="create_account ">
+                Create acount?
+            </a>
+        </form>
+    </div>
+
+
+    <!-- Site footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row"></div>
+            <hr />
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <p class="copyright-text">
+                        Copyright &copy; 2022 All Rights Reserved
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

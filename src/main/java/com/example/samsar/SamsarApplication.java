@@ -16,12 +16,7 @@ import javax.persistence.ManyToOne;
 @SpringBootApplication
 public class SamsarApplication implements CommandLineRunner {
 
-    @Autowired
-    ClientRepository clientRepository;
-    @Autowired
-    VilleRepository villeRepository;
-    @Autowired
-    LogementRepository logementRepository;
+
 
     public static void main(String[] args) {
 

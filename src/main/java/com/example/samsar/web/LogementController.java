@@ -35,7 +35,7 @@ public class LogementController {
         model.addAttribute("pagecourant" , page);
         model.addAttribute("ville" , ville);
         model.addAttribute("type" , type);
-        return "logements";
+        return "welcome";
     }
 
     @GetMapping(path = "/logement/ajouter")
@@ -46,6 +46,24 @@ public class LogementController {
         model.addAttribute("villes", villes);
         model.addAttribute("types", types);
         return "add_announce";
+    }
+
+    @GetMapping(path = "/index")
+    public String index()
+    {
+        return "index";
+    }
+
+    @GetMapping(path = "/login")
+    public  String login()
+    {
+        return "login";
+    }
+
+    @GetMapping(path = "signup")
+    public String signup()
+    {
+        return "signup";
     }
 
 
